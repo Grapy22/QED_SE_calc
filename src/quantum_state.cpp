@@ -142,3 +142,11 @@ void quantum_state::dirac_pnt_p_dual (const __float128& p, __float128 & g, __flo
         *dg = dg1 - dg2 , *df = df1 - df2  ;
     }
 }
+__float128 quantum_state::Func_prq(pFunc f, const __float128& x, const __float128& y, const __float128& p, const __float128& r,
+    const __float128& q) const
+{
+    __float128 p1 = (p + r) / M_SQRT2q;
+    __float128 p2 = (p - r) / M_SQRT2q;
+    __float128 ksi = (p1*p1 + p2*p2 - q*q) / (2 * p1 * p2);
+    return f(x, y, p1, p2, ksi) * q ;
+}

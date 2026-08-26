@@ -80,9 +80,7 @@ void pot1_ver1_calc(quantum_state& state,const __float128& abseps,const __float1
     __float128 abseps_f = abseps / fctr;
     fctr = fctr * (-4 * constants::pi * state.get_alphaZ());
     Cuba_Int5(data, releps, abseps_f, res, err);
-    printq(res * fctr * 1e6Q );
-    cout << "+-" ;
-    printq(err * fctr * 1e6Q) ;
+    print_result(cout, "po1_ver1", res * fctr, err * fctr, abseps, 6);
 }
 void pot1_ver2_calc(quantum_state& state,const __float128& abseps,const __float128& releps)
 {
@@ -94,9 +92,7 @@ void pot1_ver2_calc(quantum_state& state,const __float128& abseps,const __float1
     __float128 abseps_f = abseps / fctr;
     fctr = fctr * (8 * constants::pi * state.get_alphaZ());
     Cuba_Int5(data, releps, abseps_f, res, err);
-    printq(res * fctr * 1e6Q );
-    cout << "+-" ;
-    printq(err * fctr * 1e6Q) ;
+    print_result(cout, "po1_ver2", res * fctr, err * fctr, abseps, 6);
 }
 void pot1_calc(quantum_state& state,const __float128& abseps,const __float128& releps)
 {
